@@ -31,7 +31,7 @@ const renderMarkup = data => {
     </p>
     <p class="info-item">
       <b>Downloads</b>${downloads}
-    </p></div></a></div>`).join();
+    </p></div></a></div>`).join('');
   galleryEl.insertAdjacentHTML('beforeend', markup);
   const lightbox = new SimpleLightbox('.gallery a');
   lightbox.refresh();
@@ -46,7 +46,7 @@ const onLoad = async e => {
 
   if (data.hits.length === 0) {
     Notiflix.Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.',
+      'Sorry, there are no images matching your search query. Please try again.'
     );
 
     loadMoreBtn.style.display = 'none';
@@ -62,9 +62,7 @@ const onLoadMore = async () => {
   searchName = formEl.elements.searchQuery.value;
   const data = await fetchImages(searchName, ++page, perPage);
   if (data.hits.length === 0) {
-    Notiflix.Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.',
-    );
+    Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
     loadMoreBtn.style.display = 'none';
     return;
   }
