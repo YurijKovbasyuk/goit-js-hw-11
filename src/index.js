@@ -24,21 +24,14 @@ const renderMarkup = data => {
   <div class="info">
     <p class="info-item">
       <b>Likes</b>${likes}
-    </p>
-    <p class="info-item">
-      <b>Views</b>${views}
+    </p><p class="info-item"><b>Views</b>${views}
     </p>
     <p class="info-item">
       <b>Comments</b>${comments}
     </p>
     <p class="info-item">
       <b>Downloads</b>${downloads}
-    </p>
-  </div>
-  </a>
-  </div>`,
-    )
-    .join();
+    </p></div></a></div>`).join();
   galleryEl.insertAdjacentHTML('beforeend', markup);
   const lightbox = new SimpleLightbox('.gallery a');
   lightbox.refresh();
